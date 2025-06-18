@@ -6,3 +6,4 @@ pandas==2.3.0
 pymongo==4.13.2
 python-dotenv==1.1.0
 SQLAlchemy==2.0.41
+gunicorn==22.0.0
