@@ -1,0 +1,74 @@
+<!-- templates/thank_you.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(-45deg, #2c105f, #5916b8, #7c39ec, #9c6df3);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .content {
+      max-width: 500px;
+    }
+
+    h1 {
+      margin-top: 1rem;
+    }
+
+    .home-button {
+      margin-top: 2rem;
+      padding: 12px 24px;
+      background-color: #00c853;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .home-button:hover {
+      background-color: #00b34c;
+      transform: translateY(-2px);
+    }
+
+    .home-button i {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_4kx2q32n.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+    <h1>Thank you for your message!</h1>
+    <p>We’ll get back to you shortly.</p>
+    <a href="{{ url_for('home') }}">
+      <button class="home-button">
+        <i class="fas fa-home"></i> Go Back to Home Page
+      </button>
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | ProjectHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    .hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+    .hero-content {
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+    .lottie-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+    .team {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    .team::-webkit-scrollbar {
+      display: none;
+    }
+    .team {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      width: 250px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .lottie-avatar {
+      height: 120px;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background: #1a73e8;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    footer .footer-links {
+      margin-top: 1rem;
+    }
+    footer a {
+      color: #ffffff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+    .top-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .top-navbar ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .top-navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .top-navbar ul li a:hover {
+      color: #00ffc3;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-navbar">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('show_domains') }}">Domains</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About Us</a></li>
+      </ul>
+    </nav>
+
+<!-- Hero Section with Lottie Background -->
+<div class="hero">
+  <div id="hero-animation" class="lottie-background"></div>
+  <div class="hero-content">
+    <h1>About ProjectHub</h1>
+    <p>Your one-stop destination for innovative project ideas.</p>
+  </div>
+</div>
+
+<!-- What is ProjectHub -->
+<div class="section">
+  <h2>What is ProjectHub?</h2>
+  <p>
+    ProjectHub is a platform that bridges the gap between innovative thinkers and real-world solutions. 
+    Whether you're a student, developer, or entrepreneur, our hub provides curated projects, guidance, and collaboration tools to bring your ideas to life.
+  </p>
+</div>
+
+<!-- Our Vision -->
+<div class="section">
+  <h2>Our Vision</h2>
+  <p>
+    Our vision is to become the leading global platform for discovering, sharing, and building innovative projects that shape the future of technology, education, and society.
+    We aim to ignite creativity and empower individuals to turn bold ideas into meaningful change with the help of strong community support and reliable resources.
+  </p>
+</div>
+
+<!-- Our Mission -->
+<div class="section">
+  <h2>Our Mission</h2>
+  <p>
+    Our mission is to empower individuals with access to tools, mentorship, and collaborative opportunities that help them transform concepts into impactful solutions.
+    By fostering a creative and inclusive environment, we aim to make project-building an exciting journey for everyone.
+  </p>
+</div>
+
+<!-- Team Section -->
+<div class="section">
+  <h2>Meet the Team</h2>
+  <div class="team">
+    <div class="card">
+      <div class="lottie-avatar" id="john-lottie"></div>
+      <h3>John Paul</h3>
+      <p>Founder & Lead Developer</p>
+    </div>
+    <div class="card">
+      <div class="lottie-avatar" id="leela-lottie"></div>
+      <h3>Leela Krishna</h3>
+      <p>Co-Founder & Marketing Strategist</p>
+    </div>
+    <div class="card">
+      <div class="lottie-avatar" id="teja-lottie"></div>
+      <h3>Venkata Teja</h3>
+      <p>Co-Founder & Software Engineer</p>
+    </div>
+  </div>
+</div>
+
+<!-- Team Portfolios Section -->
+<div class="section">
+  <h2>Team Portfolios</h2>
+  <div class="team">
+    <a href="{{ url_for('portfolio_john') }}" class="card">
+      <div class="lottie-avatar" id="john-portfolio-lottie"></div>
+      <h3>John Paul</h3>
+      <p>View Portfolio</p>
+    </a>
+    <a href="{{ url_for('portfolio_leela') }}" class="card">
+      <div class="lottie-avatar" id="leela-portfolio-lottie"></div>
+      <h3>Leela Krishna</h3>
+      <p>View Portfolio</p>
+    </a>
+    <a href="{{ url_for('portfolio_teja') }}" class="card">
+      <div class="lottie-avatar" id="teja-portfolio-lottie"></div>
+      <h3>Venkata Teja</h3>
+      <p>View Portfolio</p>
+    </a>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+  <p>&copy; 2025 ProjectHub. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About</a>
+  </div>
+</footer>
+
+<!-- Lottie Animations -->
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('hero-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets6.lottiefiles.com/packages/lf20_kdx6cani.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('john-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets2.lottiefiles.com/packages/lf20_8wREpI.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('leela-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets9.lottiefiles.com/packages/lf20_iv4dsx3q.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('teja-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets6.lottiefiles.com/packages/lf20_tutvdkg0.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('john-portfolio-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets1.lottiefiles.com/packages/lf20_pwohahvd.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('leela-portfolio-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets10.lottiefiles.com/packages/lf20_4kx2q32n.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('teja-portfolio-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets2.lottiefiles.com/packages/lf20_tno6cg2w.json'
+  });
+</script>
+
+</body>
+</html>

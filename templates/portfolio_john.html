@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Paul - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+    [data-scroll-container] {
+      overflow: hidden;
+    }
+    header {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .typing {
+      font-weight: bold;
+      font-size: 2rem;
+      color: #0b57d0;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+      margin: 20px auto;
+    }
+    @keyframes typing {
+      to { width: 14ch; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      border-left: 5px solid #0b57d0;
+      padding-left: 10px;
+      color: #0b57d0;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    footer {
+      background: #0b57d0;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at top right, #e3f2fd, #fff);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div data-scroll-container>
+    <header data-scroll-section>
+      <div class="typing">John Paul</div>
+      <p>AI/ML Engineer | Python Developer | GCP Enthusiast</p>
+    </header>
+
+    <div class="container" data-scroll-section>
+      <section>
+        <h2>Summary</h2>
+        <p>AI/ML Engineer at Measure Marketer with expertise in predictive modeling, automation, and personalization. Experienced in DRDO and CodeAlpha internships.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li><strong>Hindustan University, Chennai</strong> – B.Tech in CSE (AI & DS), CGPA: 9.0</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>Languages: Python, C/C++, SQL, HTML/CSS, JavaScript, R</li>
+          <li>Frameworks: Flask, REST API</li>
+          <li>Tools: Git, VS Code, GCP, GA4, Looker Studio, Power BI</li>
+          <li>Libraries: pandas, scikit-learn, matplotlib</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <ul>
+          <li><strong>Software Developer Intern (DRDO)</strong> – Developed Qt-based GUI for defense systems and UDP data control.</li>
+          <li><strong>ML Intern (CodeAlpha)</strong> – Built disease prediction, handwritten recognition, and credit score models.</li>
+          <li><strong>Forage Internship</strong> – Analytical insights and communication project.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>Aether Mind:</strong> Flask app using Gemini API for job/course recommendations with 90% NLP accuracy.</li>
+          <li><strong>Gesture-Controlled Light System:</strong> Real-time gesture-based lighting using OpenCV & IOT hardware.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:johnshalem11@gmail.com">johnshalem11@gmail.com</a></p>
+        <p>Phone: +91 97056 37155</p>
+        <p><a href="https://www.linkedin.com/in/johnpaul-addakula-371348224/" target="_blank">LinkedIn</a> | <a href="https://github.com/Johnverse11" target="_blank">GitHub</a></p>
+      </section>
+    </div>
+
+    <footer data-scroll-section>
+      <p>&copy; 2025 John Paul. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:johnshalem11@gmail.com">Email</a>
+        <a href="https://github.com/Johnverse11" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true
+    });
+  </script>
+</body>
+</html>

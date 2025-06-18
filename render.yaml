@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: projixhub
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        value: 187d5eaec8b27c50aea908cc45f88d83
+      - key: MONGO_URI
+        value: mongodb://username:password@host:port/databasemongodb+srv://Projixhub:Project2025@cluster0.tnvafei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: MAIL_USERNAME
+        value: projixhub@gmail.com
+      - key: MAIL_PASSWORD
+        value: vosp jipm ozyn bvyz

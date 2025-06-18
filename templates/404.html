@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 – Page Not Found</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png'), radial-gradient(ellipse at center, #0d1023, #000);
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    #lottie-404 {
+      width: 250px;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    a.button {
+      background-color: #1d1d3e;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #3c3c6c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="lottie-404"></div>
+    <h1>404 – Page Not Found</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <a class="button" href="{{ url_for('home') }}">Go to Homepage</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-404'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://lottie.host/881c9c07-4aeb-472c-8e4d-e8f0352f28b3/0b0fKU2RnS.json' // Cute robot 404 animation
+    });
+  </script>
+</body>
+</html>

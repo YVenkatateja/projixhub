@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venkata Teja - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f7fa;
+      color: #333;
+      overflow-x: hidden;
+    }
+    [data-scroll-container] {
+      overflow: hidden;
+    }
+    header {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .typing {
+      font-weight: bold;
+      font-size: 2rem;
+      color: #0057d8;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+      margin: 20px auto;
+    }
+    @keyframes typing {
+      to { width: 17ch; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      border-left: 5px solid #0057d8;
+      padding-left: 10px;
+      color: #0057d8;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    footer {
+      background: #0057d8;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at top right, #e0f7ff, #fff);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div data-scroll-container>
+    <header data-scroll-section>
+      <div class="typing">Venkata Teja</div>
+      <p>Data Analyst | Full Stack Developer | ML Enthusiast</p>
+    </header>
+
+    <div class="container" data-scroll-section>
+      <section>
+        <h2>Summary</h2>
+        <p>Adaptable professional skilled in data analysis, software development, and problem-solving. Proficient in Python, SQL, Java, and data visualization. Passionate about learning and building innovative solutions.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li><strong>Hindustan University</strong> – B.Tech in CSE, 2022-2026, 93%</li>
+          <li><strong>Raju Junior College</strong> – Intermediate, 2020-2022, 92%</li>
+          <li><strong>Raju High School</strong> – SSC, 2020, 100%</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>Python (Basic), Java (Moderate), SQL</li>
+          <li>Microsoft Excel, Power BI</li>
+          <li>Data Analysis & Visualization</li>
+          <li>Full Stack Development (Python)</li>
+          <li>Problem Solving</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul>
+          <li>Automated Plant Watering System using IoT</li>
+          <li>Green House Management System</li>
+          <li>Data Science Projects: T20 Cricket Analytics, Personal Finance Tracker</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <ul>
+          <li><strong>UI/UX Designer, NEXES INFO IT</strong> – Developed school web applications (Sep–Oct 2024)</li>
+          <li><strong>Web Developer, INTRAINZ</strong> – Built responsive web UIs (Jul–Aug 2023)</li>
+          <li><strong>Data Science Intern, Prodigy InfoTech</strong> – Applied ML on real data (Oct 2024)</li>
+          <li><strong>Data Analyst, Cognifyz</strong> – Data cleaning and visualization (Mar–Apr 2025)</li>
+          <li><strong>Data Analytics, YBI Foundation</strong> – Analyzed datasets for insights (Sep–Oct 2024)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <ul>
+          <li>Python, Data Analysis, Machine Learning</li>
+          <li>UX/UI Designing, Fundamentals of AI & Data Science</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Extracurriculars</h2>
+        <ul>
+          <li>Physics Olympiad Winner</li>
+          <li>NCC (A&B), NSS Member</li>
+          <li>Hackathons, Sports Club, IEEE Member</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:venkatateja310@gmail.com">venkatateja310@gmail.com</a></p>
+        <p>Phone: 9059860460</p>
+        <p><a href="https://www.linkedin.com/in/yanamala-venkata-teja-21b910262" target="_blank">LinkedIn</a> | <a href="https://github.com/YVenkatateja" target="_blank">GitHub</a></p>
+      </section>
+    </div>
+
+    <footer data-scroll-section>
+      <p>&copy; 2025 Venkata Teja. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:venkatateja310@gmail.com">Email</a>
+        <a href="https://github.com/YVenkatateja" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true
+    });
+  </script>
+</body>
+</html>

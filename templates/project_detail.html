@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ project.title }}</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #000;
+      padding: 30px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.7rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .domain-text {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      animation: fadeInSection 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .section:nth-child(n) { animation-delay: 0.2s; }
+
+    @keyframes fadeInSection {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .images img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .ppt-buttons a, .back-btn {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 12px 18px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .ppt-buttons a:hover, .back-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      background-color: #343a40;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    iframe, audio {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .interest-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .interest-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .interest-btn:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-btn" href="{{ request.referrer or url_for('home') }}">&larr; Back</a>
+
+    <h1>{{ project.title }}</h1>
+
+    {% if project.domain %}
+    <div class="domain-text">Domain: {{ project.domain }}</div>
+    {% endif %}
+
+    {% if project.intro %}
+    <div class="section">
+      <div class="section-title">Introduction</div>
+      <div>{{ project.intro }}</div>
+    </div>
+    {% endif %}
+
+    <div class="section">
+      <div class="section-title">Abstract</div>
+      <div>{{ project.abstract }}</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Idea</div>
+      <div>{{ project.idea }}</div>
+    </div>
+
+    {% if project.tech_stack %}
+    <div class="section">
+      <div class="section-title">Tech Stack</div>
+      <div class="tech-stack">
+        {% for tech in project.tech_stack %}
+          <span class="badge">{{ tech }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if project.output_image %}
+    <div class="section">
+      <div class="section-title">Output Images</div>
+      <div class="images">
+        {% for img in project.output_image %}
+          <img src="{{ img }}" alt="Output Image">
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if project.ppt_link %}
+    <div class="section">
+      <div class="section-title">Project PPT</div>
+      <div class="ppt-buttons">
+        <a href="{{ project.ppt_link }}" target="_blank">View PPT</a>
+        <a href="{{ project.ppt_link }}" download>Download PPT</a>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if project.video_link %}
+    <div class="section">
+      <div class="section-title">Demo Video</div>
+      <iframe src="{{ project.video_link }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+
+    {% if project.audio_link %}
+    <div class="section">
+      <div class="section-title">Audio Narration</div>
+      <audio controls>
+        <source src="{{ project.audio_link }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    {% endif %}
+
+    <div class="interest-section">
+      <a href="{{ url_for('contact', project=project.title) }}" class="interest-btn">I'm Interested</a>
+    </div>
+
+    <footer>&copy; 2025 ProjixHub • All rights reserved</footer>
+  </div>
+</body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section, index) => {
+      section.style.animationDelay = `${index * 0.2}s`;
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+    });
+  });
+</script>

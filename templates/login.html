@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-10px); }
+      40%, 80% { transform: translateX(10px); }
+    }
+
+    body {
+      background: linear-gradient(-45deg, #2c105f, #5916b8, #7c39ec, #9c6df3);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+
+    .fade-in-up {
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    .shake {
+      animation: shake 0.5s ease;
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      opacity: 0.95;
+    }
+
+    .toast-success { background-color: #16a34a; color: white; }
+    .toast-error { background-color: #dc2626; color: white; }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen text-white">
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="toast-container">
+        {% for category, message in messages %}
+          <div class="toast 
+            {% if category == 'success' %} toast-success {% endif %}
+            {% if category == 'error' %} toast-error shake {% endif %}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <form action="/login" method="POST" class="bg-white/20 p-8 rounded-xl shadow-xl backdrop-blur-md w-full max-w-md fade-in-up" id="login-form">
+    <h2 class="text-3xl font-bold mb-6 text-center text-white">Login</h2>
+
+    <input name="email" type="email" placeholder="Email" required
+      class="w-full p-3 mb-4 rounded bg-white text-black placeholder-gray-700" />
+
+    <div class="relative mb-6">
+      <input name="password" type="password" id="password" placeholder="Password" required
+        class="w-full p-3 rounded bg-white text-black placeholder-gray-700" />
+      <button type="button" onclick="togglePassword()" class="absolute right-3 top-3 text-gray-500 hover:text-gray-800">
+        👁️
+      </button>
+    </div>
+
+    <button type="submit"
+      class="w-full py-2 bg-blue-600 hover:bg-blue-700 transition duration-300 rounded text-white font-semibold">
+      Login
+    </button>
+
+    <p class="mt-4 text-sm text-center text-white">
+      Don't have an account? <a href="/signup" class="underline font-semibold">Signup</a>
+    </p>
+  </form>
+
+  <script>
+    function togglePassword() {
+      const pw = document.getElementById("password");
+      pw.type = pw.type === "password" ? "text" : "password";
+    }
+
+    // Auto-remove toast after 4s
+    setTimeout(() => {
+      const toasts = document.querySelectorAll('.toast');
+      toasts.forEach(t => t.remove());
+    }, 4000);
+  </script>
+</body>
+</html>
